@@ -6,12 +6,12 @@ class QuizApp:
         self.app = Tk()
         self.app.title("성격 분석 퀴즈: 나의 성격 유형을 알아보세요!")
         self.app.geometry("600x600")
-        self.app.configure(bg="pink")  # Set background color to pink
+        self.app.configure(bg="pink")  
 
         self.label_title = Label(self.app, text="성격 분석 퀴즈: 나의 성격 유형을 알아보세요!", font=("Arial", 18), bg="pink")
         self.label_title.pack(side='top', pady=20)
 
-        self.img_path = "flowersmbti.png"  # Update this path if needed
+        self.img_path = "flowersmbti.png"  
 
         try:
             img = Image.open(self.img_path)
@@ -28,7 +28,7 @@ class QuizApp:
 
         self.score = 0
         self.current_question = 0
-        self.selected_answer = None  # To track if an answer is selected
+        self.selected_answer = None  
 
         self.questions = [
             {
@@ -91,7 +91,7 @@ class QuizApp:
             self.label_question.pack(pady=20)
 
             self.var = IntVar()
-            self.var.set(-1)  # Initialize with an invalid value
+            self.var.set(-1)  
 
             for text, value in question_data["answers"]:
                 rb = Radiobutton(self.app, text=text, variable=self.var, value=value, bg="pink", command=self.on_answer_selected)
@@ -99,7 +99,7 @@ class QuizApp:
 
             self.button_next = Button(self.app, text="다음", command=self.next_question, bg="pink")
             self.button_next.pack(pady=20)
-            self.button_next.config(state=DISABLED)  # Initially disable the button
+            self.button_next.config(state=DISABLED)
         else:
             self.show_result()
 
